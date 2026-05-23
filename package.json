@@ -1,0 +1,12 @@
+{
+  "name": "peer-help-portal",
+  "version": "1.0.0",
+  "description": "Peer Help Request Portal",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

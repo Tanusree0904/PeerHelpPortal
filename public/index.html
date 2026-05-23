@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Peer Help Portal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Submit Help Request</h2>
+
+<input id="roll" placeholder="Roll Number">
+<input id="subject" placeholder="Subject">
+<textarea id="description" placeholder="Description"></textarea>
+<input id="contact" placeholder="Contact Info">
+
+<button onclick="submitRequest()">Submit</button>
+<button onclick="location.href='view.html'">View Requests</button>
+
+<script>
+function submitRequest() {
+  const roll = document.getElementById("roll").value.trim();
+  const subject = document.getElementById("subject").value.trim();
+  const description = document.getElementById("description").value.trim();
+  const contact = document.getElementById("contact").value.trim();
+
+  if (!roll || !subject || !description || !contact) {
+    alert("❗ Please fill all details properly");
+    return;
+  }
+
+  fetch("/add", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ roll, subject, description, contact })
+  })
+  .then(() => {
+    alert("✅ Request submitted");
+    document.getElementById("roll").value = "";
+    document.getElementById("subject").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("contact").value = "";
+  });
+}
+</script>
+
+</body>
+</html>

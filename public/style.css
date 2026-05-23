@@ -1,0 +1,134 @@
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+}
+
+input, textarea {
+  width: 360px;
+  padding: 12px;
+  margin: 10px auto;
+  display: block;
+  box-sizing: border-box;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+}
+
+textarea {
+  height: 120px;
+  resize: none;
+}
+
+button {
+  padding: 12px 25px;
+  margin: 10px;
+  border: none;
+  border-radius: 20px;
+  background: #6a11cb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2575fc;
+}
+
+#requests {
+  max-width: 800px;
+  margin: auto;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: left;
+}
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #89f7fe, #66a6ff);
+  padding: 20px;
+  text-align: center;
+}
+
+h2 {
+  color: #333;
+}
+
+/* Buttons */
+button {
+  padding: 12px 25px;
+  margin: 15px;
+  border: none;
+  border-radius: 20px;
+  background: #6a11cb;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #2575fc;
+}
+
+/* Requests container */
+#requests {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Request card */
+.card {
+  background: white;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  text-align: left;
+}
+
+/* Mark as Done row */
+.done-box {
+  margin-top: 15px;
+  display: flex;
+  align-items: center;
+  gap: 2px;        /* 🔑 reduced space */
+}
+/* Text */
+.done-label {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Checkbox */
+.done-check {
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+}
+/* FIX extra space between text and checkbox */
+.done-box {
+  display: inline-flex;     /* not flex */
+  align-items: center;
+  gap: 2px;                 /* very small gap */
+}
+
+.done-label {
+  margin: 0;                /* 🔑 remove default margin */
+  padding: 0;
+}
+
+.done-check {
+  margin: 0;                /* 🔑 remove default margin */
+  padding: 0;
+}

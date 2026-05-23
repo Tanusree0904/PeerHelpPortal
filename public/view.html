@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Requests</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Peer Help Requests</h2>
+
+<div id="requests"></div>
+
+<button onclick="location.href='index.html'">Go Back</button>
+
+<script>
+fetch("/requests")
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById("requests");
+
+    if (data.length === 0) {
+      container.innerHTML = "<p>No pending requests</p>";
+      return;
+    }
+
+    data.forEach(item => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      card.innerHTML = `
+        <h3>${item.subject}</h3>
+        <p><b>Roll No:</b> ${item.roll}</p>
+        <p>${item.description}</p>
+        <p><b>Contact:</b> ${item.contact}</p>
+
+        <div class="done-box">
+          <label for="done-${item.id}" class="done-label">
+            Mark as Done
+          </label>
+          <input type="checkbox" id="done-${item.id}" class="done-check">
+        </div>
+      `;
+
+      const checkbox = card.querySelector(".done-check");
+
+      checkbox.addEventListener("change", () => {
+        if (confirm("Are you sure you want to mark this as done?")) {
+          fetch("/delete/" + item.id, { method: "DELETE" })
+            .then(() => {
+              card.remove();
+              alert("Request deleted from database");
+            });
+        } else {
+          checkbox.checked = false;
+        }
+      });
+
+      container.appendChild(card);
+    });
+  });
+</script>
+
+</body>
+</html>
